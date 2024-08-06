@@ -1,4 +1,4 @@
-﻿using GloboTicket.TicketManagement.Application.Features.Dtos;
+﻿using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events
 {
-    public class GetEventDetailQuery : IRequest<EventDetailDTO>
+    public class GetEventsListQuery : IRequest<List<EventListVm>>
     {
-        public Guid Id { get; set; }
     }
 }

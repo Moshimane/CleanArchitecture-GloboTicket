@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using GloboTicket.TicketManagement.Application.Contracts.Persistence;
-using GloboTicket.TicketManagement.Application.Features.Dtos;
+using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using GloboTicket.TicketManagement.Domain.Entities;
 using MediatR;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events
 {
-    public class GetEventListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListDTO>>
+    public class GetEventListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListVm>>
     {
         private readonly IAsyncRepository<Event> _eventRepository;
         private readonly IMapper _mapper;
@@ -23,11 +23,11 @@ namespace GloboTicket.TicketManagement.Application.Features.Events
         }
 
 
-        public async Task<List<EventListDTO>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
+        public async Task<List<EventListVm>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
         {
             var allEvents = (await _eventRepository.ListAllAsync()).OrderBy(x => x.Date);
 
-            return _mapper.Map<List<EventListDTO>>(allEvents);
+            return _mapper.Map<List<EventListVm>>(allEvents);
         }
     }
 }

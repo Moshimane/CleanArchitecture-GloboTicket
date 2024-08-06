@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GloboTicket.TicketManagement.Application.Features.Dtos
+namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
-    public class EventDetailDTO
+    public class EventDetailVm
     {
         public Guid EventId { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -16,6 +16,6 @@ namespace GloboTicket.TicketManagement.Application.Features.Dtos
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
-        public CategoryDTO Category { get; set; } = default!;
+        public CategoryDto Category { get; set; } = default!;
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GloboTicket.TicketManagement.Application.Features.Dtos
+namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList
 {
-    public class EventListDTO
+    public class EventListVm
     {
         public Guid EventId { get; set; }
         public string Name { get; set; }
